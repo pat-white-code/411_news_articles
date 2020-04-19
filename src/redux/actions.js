@@ -9,6 +9,11 @@ const articleAction = (articles) => {
 }
 
 export const fetchArticles = () => {
+    return (dispatch) => {
+        fetch(url)
+            .then(res => res.json())
+            .then(json => dispatch(articleAction(json.articles)))
+    }
     // return a function that calls fetch and dispatches "articleAction()"
     // with the list of articles from the API call
 }
